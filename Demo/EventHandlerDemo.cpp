@@ -13,6 +13,8 @@
 class DummyCommandA : public EventCommand<EventArgs> {
 public:
     void invoke(Object& sender, EventArgs e) {
+        (void)sender;
+        (void)e;        
         DMSG("Dummy Command A Executed!");
     }
 };
@@ -20,11 +22,15 @@ public:
 class DummyCommandB {
 public:
     void callback(Object& sender, EventArgs e) {
+        (void)sender;
+        (void)e;
         DMSG("Dummy Command B Executed!");
     }
 };
 
 void static_callback(Object& sender, EventArgs e) {
+    (void)sender;
+    (void)e;
     DMSG("Static Callback Executed!");
 }
 

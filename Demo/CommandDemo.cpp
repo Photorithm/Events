@@ -19,6 +19,8 @@ template <class Args>
 class DummyEventCommand : public EventCommand<Args> {
 public:
     void invoke(object& sender, Args e) {
+        (void)sender;
+        (void)e;
         DMSG("Event executed!");
         if(typeid(Args) == typeid(CustomArgs)) {
             DMSG("Event arguments are { x: " << e.X << " }");

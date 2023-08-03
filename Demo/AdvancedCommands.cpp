@@ -19,15 +19,25 @@ public:
 };
 
 class Sender {
-    void privateListener(object& sender, CustomArgs e) { DMSG("Private function executed!"); }
+    void privateListener(object& sender, CustomArgs e) { 
+        (void)sender;
+        (void)e;
+        DMSG("Private function executed!"); 
+        }
 public:
-    void publicListener(Object& sender, CustomArgs e) { DMSG("Public function executed!"); }
+    void publicListener(Object& sender, CustomArgs e) {
+        (void)sender;
+        (void)e;        
+        DMSG("Public function executed!"); 
+        }
     EVENT_PTR getListener() {
         return EVENT_MK(this, &Sender::privateListener);
     }
 };
 
 void staticListener(Object& sender, CustomArgs e) {
+    (void)sender;
+    (void)e;
     DMSG("Static function executed!");
 }
 
@@ -45,6 +55,8 @@ int main() {
     EVENT_PTR event2 = sender.getListener();
     StaticCommand<CustomArgs> event3(&staticListener);
     StaticCommand<CustomArgs> event4([](Object &sender, CustomArgs e){
+        (void)sender;
+        (void)e;
         DMSG("Lambda function executed!");
     });
     
