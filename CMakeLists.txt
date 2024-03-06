@@ -3,11 +3,14 @@ project(Events)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
+set(BR_SDK_PATH "/workspace/aarch64-buildroot-linux-gnu_sdk-buildroot" CACHE STRING "SDK Path")
+set(BR_STAGING_PATH "/workspace/staging" CACHE STRING "SDK Path")
+
+file(GLOB_RECURSE EVENTS_INCLUDE_FILES "Include/*.h")
+
+install(FILES ${EVENTS_INCLUDE_FILES} DESTINATION ${BR_STAGING_PATH}/Events/Include)
+
 include_directories("Include")
-
-SET (EVENTS_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/Include CACHE STRING "Events Include Directory")
-
-#file(GLOB_RECURSE EVENT_FILES "Source/*.cpp")
 
 add_executable(ObjectDemo Demo/ObjectDemo.cpp)
 add_executable(CommandDemo Demo/CommandDemo.cpp)
