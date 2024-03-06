@@ -1,10 +1,11 @@
+set(BR_SDK_PATH "/workspace/aarch64-buildroot-linux-gnu_sdk-buildroot" CACHE STRING "SDK Path")
+set(BR_STAGING_PATH "/workspace/staging" CACHE STRING "SDK Path")
+set(CMAKE_TOOLCHAIN_FILE "${BR_SDK_PATH}/share/buildroot/toolchainfile.cmake" CACHE FILEPATH "Toolchain file" FORCE)
+
 cmake_minimum_required(VERSION 3.0.2)
 project(Events)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
-
-set(BR_SDK_PATH "/workspace/aarch64-buildroot-linux-gnu_sdk-buildroot" CACHE STRING "SDK Path")
-set(BR_STAGING_PATH "/workspace/staging" CACHE STRING "SDK Path")
 
 file(GLOB_RECURSE EVENTS_INCLUDE_FILES "Include/*.h")
 
