@@ -1,6 +1,4 @@
-set(BR_SDK_PATH "/workspace/aarch64-buildroot-linux-gnu_sdk-buildroot" CACHE STRING "SDK Path")
 set(BR_STAGING_PATH "/workspace/staging" CACHE STRING "SDK Path")
-set(CMAKE_TOOLCHAIN_FILE "${BR_SDK_PATH}/share/buildroot/toolchainfile.cmake" CACHE FILEPATH "Toolchain file" FORCE)
 
 cmake_minimum_required(VERSION 3.0.2)
 project(Events)
