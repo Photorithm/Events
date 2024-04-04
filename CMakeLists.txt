@@ -2,6 +2,11 @@ set(BR_STAGING_PATH "/workspace/staging" CACHE STRING "SDK Path")
 
 cmake_minimum_required(VERSION 3.0.2)
 project(Events)
+IF(CMAKE_CROSSCOMPILING)
+    message(STATUS "Cross-compiling ON.")
+ELSE()
+    message(STATUS "Cross-compiling OFF.")
+ENDIF()
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
