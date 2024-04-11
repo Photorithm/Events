@@ -1,13 +1,20 @@
+set(BR_STAGING_PATH "/workspace/staging" CACHE STRING "SDK Path")
+
 cmake_minimum_required(VERSION 3.0.2)
 project(Events)
+IF(CMAKE_CROSSCOMPILING)
+    message(STATUS "Cross-compiling ON.")
+ELSE()
+    message(STATUS "Cross-compiling OFF.")
+ENDIF()
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
+file(GLOB_RECURSE EVENTS_INCLUDE_FILES "Include/*.h")
+
+install(FILES ${EVENTS_INCLUDE_FILES} DESTINATION ${BR_STAGING_PATH}/Events/Include)
+
 include_directories("Include")
-
-SET (EVENTS_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/Include CACHE STRING "Events Include Directory")
-
-#file(GLOB_RECURSE EVENT_FILES "Source/*.cpp")
 
 add_executable(ObjectDemo Demo/ObjectDemo.cpp)
 add_executable(CommandDemo Demo/CommandDemo.cpp)
